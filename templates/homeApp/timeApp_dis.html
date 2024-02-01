@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+    {% load static %}
+  <head>
+    <title>
+      {% block title %}
+        My amazing site
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/timeApp_dis.css' %}" />
+  </head>
+  <body>
+    <h1>Display Time</h1>
+    <p>{{ date_send }}</p>
+
+    <p>
+      Hi{% if am_pm == 'AM' %}
+         Good Morning
+      {% else %}
+        Good Afternoon
+      {% endif %}
+    </p>
+
+    <label>Time:</label>
+
+    <input type="text" name="time" value="{{ date_send }}" />
+    <select>
+      <option>{{ date_send }}</option>
+      <option>{{ am_pm }}</option>
+      <option>{{ date_send }}</option>
+      <option>{{ am_pm }}</option>
+    </select>
+<br>
+    <img src="{% static 'images/img1.png' %}" id="image" alt="My image" height="50" width="50" /> 
+  </body>
+</html>

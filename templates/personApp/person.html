@@ -1,0 +1,39 @@
+<html>
+    {% load static %}
+  <head>
+    <title>My DB Result Demo</title>
+    <style>
+        th,tr,td{
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+  </head>
+
+  <body>
+        <h1 style="text-align: center;">Person Details</h1>
+       {% comment %} <p> {{person_dict}}</p> {% endcomment %}
+        <table align="center">
+            <tr>
+                <th>S.NO</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Address</th>
+            </tr>
+        {% if person_list %}
+            
+            {% for persons  in person_list  %}
+            <tr>
+                <td><p>{{persons.empNo}}</p></td>
+                <td><p>{{persons.empName}}</p></td>
+                <td><p>{{persons.empSalary}}</p></td>
+                <td><p>{{persons.empAddress}}</p></td>
+            </tr>
+            {% endfor %}
+                
+        {% endif %}
+            
+        </table>
+
+  </body>
+</html>

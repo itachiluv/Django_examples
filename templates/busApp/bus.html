@@ -1,0 +1,86 @@
+<html>
+  {% load static %}
+  <head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>Bus Informations</title>
+    <link rel="stylesheet" href="{% static 'css/bus.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <ul class="nav bg-info">
+        <li class="nav-item">
+          <a class="nav-link link-light" href="/">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="/members">MEMBERS</a>
+        </li>
+      </ul>
+      {% block content %}
+      {% endblock %}
+    </div>
+    {{favorite_color}}
+    <!-- Bus Table -->
+    <table align="center">
+      <tr>
+        <th>S.NO</th>
+        <th>Bus Name</th>
+        <th>Bus From</th>
+        <th>Bus Destination</th>
+      </tr>
+      {{bus_dict}}
+      {% if bus_dict.bus_list %}
+        {% for bus in bus_dict.bus_list %}
+          <tr>
+            <td>
+              <p>{{ bus.bus_no }}</p>
+            </td>
+            <td>
+              <p>{{ bus.bus_name }}</p>
+            </td>
+            <td>
+              <p>{{ bus.bus_from }}</p>
+            </td>
+            <td>
+              <p>{{ bus.bus_destination }}</p>
+            </td>
+          </tr>
+        {% endfor %}
+      {% endif %}
+    </table>
+
+    <!-- Passenger Table -->
+    <table align="center">
+      <tr>
+        <th>S.NO</th>
+        <th>Passenger Name</th>
+        <th>Passenger Age</th>
+        <th>Passenger From</th>
+        <th>Passenger Destination</th>
+      </tr>
+      {% if pass_dict.pass_list %}
+        {% for pass in pass_dict.pass_list %}
+          <tr>
+            <td>
+              <p>{{ pass.id }}</p>
+            </td>
+            <td>
+              <p>{{ pass.pass_name }}</p>
+            </td>
+            <td>
+              <p>{{ pass.pass_age }}</p>
+            </td>
+            <td>
+              <p>{{ pass.pass_from }}</p>
+            </td>
+            <td>
+              <p>{{ pass.pass_destination }}</p>
+            </td>
+          </tr>
+
+        {% endfor %}
+      {% endif %}
+    </table>
+  </body>
+</html>

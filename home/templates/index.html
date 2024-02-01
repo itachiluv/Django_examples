@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <title>TEST</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+<body>
+  <h1>Praveen PHP Developer TL</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolor,
+    esse velit illum debitis nobis maxime placeat. Mollitia corrupti amet, nemo
+    omnis maxime magni laborum reprehenderit commodi molestias aspernatur
+    voluptas.
+  </p>
+  <h2>Test Website</h2>
+  <label>Name: </label>
+  <input type="text" name="name" />
+  {% comment "Notes" %} {{user_send}} {% endcomment %}
+  <table>
+    <tr>
+      <th>SNO</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Eligible</th>
+      <th>Type</th>
+    </tr>
+    {% for user in user_send %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.Age}}</td>
+      <td>{% if user.Age >= 35 %} NO {% else %} YES {% endif %}</td>
+      <td>{% if user.name == "Messi"%} GOAT {% else %} Player{%endif%}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
